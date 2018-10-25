@@ -1,0 +1,13 @@
+
+nbproject/private
+nbproject/Package-default.bash
+nbproject/Makefile-variables.mk
+nbproject/Makefile-local-default.mk
+nbproject/Makefile-impl.mk
+nbproject/Makefile-default.mk
+nbproject/configurations.xml
+dist/
+build/
+nbproject/Makefile-Simulator_PIC18F45K22.mk
+nbproject/Package-Simulator_PIC18F45K22.bash
+nbproject/Makefile-local-Simulator_PIC18F45K22.mk
