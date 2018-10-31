@@ -42,36 +42,94 @@
 */
 
 #include "mcc_generated_files/mcc.h"
+#include <stdlib.h>
 
-/*
-                         Main application
- */
+#define testbit(var, bit) ((var) & (1 <<(bit)))
+
+typedef union displ_conf {
+    unsigned char conc_displ_val;
+    struct{
+        unsigned ba:1, h:1, g:1, fe:1, d:1, up:1, c:1;
+        unsigned    :1;
+    }led_seg;
+} displ_conf;
+
+uint8_t randRange(uint8_t);
+void resolve_ledsegs(uint8_t, displ_conf*);
+
+
+
 void main(void)
 {
+    bool seed_initd = false;
+    unsigned int disp1_num, disp2_num;
+    displ_conf displ_1_conf, displ_2_conf;
+    
     // Initialize the device
     SYSTEM_Initialize();
 
-    // If using interrupts in PIC18 High/Low Priority Mode you need to enable the Global High and Low Interrupts
-    // If using interrupts in PIC Mid-Range Compatibility Mode you need to enable the Global and Peripheral Interrupts
-    // Use the following macros to:
-
-    // Enable the Global Interrupts
-    //INTERRUPT_GlobalInterruptEnable();
-
-    // Disable the Global Interrupts
-    //INTERRUPT_GlobalInterruptDisable();
-
-    // Enable the Peripheral Interrupts
-    //INTERRUPT_PeripheralInterruptEnable();
-
-    // Disable the Peripheral Interrupts
-    //INTERRUPT_PeripheralInterruptDisable();
-
     while (1)
     {
-        // Add your application code
+        if(Activate_Dice_Roll_GetValue()){
+            if(!seed_initd){
+                srand(TMR0_ReadTimer());
+                TMR0_StopTimer();
+                seed_initd = true;
+            }       
+            disp1_num = randRange(6)+1;
+            resolve_ledsegs(disp1_num, &displ_1_conf);
+            
+            if(Activate_Second_Display_GetValue()){
+                disp2_num = randRange(6)+1;
+                resolve_ledsegs(disp2_num, &displ_2_conf);
+            }else{
+                Display_2BA_SetHigh();
+                Display_2C_SetHigh();
+                Display_2D_SetHigh();
+                Display_2FE_SetHigh();
+                Display_2H_SetHigh();
+                Display_2G_SetHigh();
+                Display_2UP_SetHigh();
+            }
+            
+            PORTB = (displ_1_conf.conc_displ_val & 0b11111110);
+            PORTD = (displ_2_conf.conc_displ_val & 0b11110000);
+            PORTC = (displ_2_conf.conc_displ_val & 0b00001110);
+            
+            __delay_ms(2000);
+            displ_1_conf.conc_displ_val = 0;
+            displ_2_conf.conc_displ_val = 0;
+
+
+        }
     }
 }
+
+    // Return a uniform random value in the range 0..n-1 inclusive. More info @ https://bit.ly/2O4JHz7
+   uint8_t randRange(uint8_t n)
+   {
+       unsigned int limit, r;
+       limit = RAND_MAX - (RAND_MAX % n);
+       while((r = rand()) >= limit);
+       return (r % n);
+   }
+   
+   void resolve_ledsegs(uint8_t displ_nr, displ_conf *a_displ_conf){
+       bool s0, s1, s2;
+       
+       s0 = testbit(displ_nr,0);
+       s1 = testbit(displ_nr,1);
+       s2 = testbit(displ_nr,2);
+       
+       a_displ_conf->led_seg.ba= ~(s1 | (s0 & s2));
+       a_displ_conf->led_seg.fe = ~(s1 | (s0 & s2));
+       a_displ_conf->led_seg.c =  ~(~(s2) + (~(s1) & ~(s0)));
+       a_displ_conf->led_seg.d = ~(s2 | s0);
+       a_displ_conf->led_seg.g = ~(s1 & ~(s0));
+       a_displ_conf->led_seg.h = ~(s2);
+       a_displ_conf->led_seg.up = ~(s2 | s1);
+   }
+   
 /**
  End of File
 */
