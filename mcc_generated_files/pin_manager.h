@@ -59,30 +59,78 @@
 #define PULL_UP_ENABLED      1
 #define PULL_UP_DISABLED     0
 
-// get/set Activate_Second_Display aliases
-#define Activate_Second_Display_TRIS                 TRISAbits.TRISA4
-#define Activate_Second_Display_LAT                  LATAbits.LATA4
-#define Activate_Second_Display_PORT                 PORTAbits.RA4
-#define Activate_Second_Display_SetHigh()            do { LATAbits.LATA4 = 1; } while(0)
-#define Activate_Second_Display_SetLow()             do { LATAbits.LATA4 = 0; } while(0)
-#define Activate_Second_Display_Toggle()             do { LATAbits.LATA4 = ~LATAbits.LATA4; } while(0)
-#define Activate_Second_Display_GetValue()           PORTAbits.RA4
-#define Activate_Second_Display_SetDigitalInput()    do { TRISAbits.TRISA4 = 1; } while(0)
-#define Activate_Second_Display_SetDigitalOutput()   do { TRISAbits.TRISA4 = 0; } while(0)
+// get/set Unused_IO_RA0 aliases
+#define Unused_IO_RA0_TRIS                 TRISAbits.TRISA0
+#define Unused_IO_RA0_LAT                  LATAbits.LATA0
+#define Unused_IO_RA0_PORT                 PORTAbits.RA0
+#define Unused_IO_RA0_ANS                  ANSELAbits.ANSA0
+#define Unused_IO_RA0_SetHigh()            do { LATAbits.LATA0 = 1; } while(0)
+#define Unused_IO_RA0_SetLow()             do { LATAbits.LATA0 = 0; } while(0)
+#define Unused_IO_RA0_Toggle()             do { LATAbits.LATA0 = ~LATAbits.LATA0; } while(0)
+#define Unused_IO_RA0_GetValue()           PORTAbits.RA0
+#define Unused_IO_RA0_SetDigitalInput()    do { TRISAbits.TRISA0 = 1; } while(0)
+#define Unused_IO_RA0_SetDigitalOutput()   do { TRISAbits.TRISA0 = 0; } while(0)
+#define Unused_IO_RA0_SetAnalogMode()      do { ANSELAbits.ANSA0 = 1; } while(0)
+#define Unused_IO_RA0_SetDigitalMode()     do { ANSELAbits.ANSA0 = 0; } while(0)
 
 // get/set Activate_Dice_Roll aliases
-#define Activate_Dice_Roll_TRIS                 TRISAbits.TRISA5
-#define Activate_Dice_Roll_LAT                  LATAbits.LATA5
-#define Activate_Dice_Roll_PORT                 PORTAbits.RA5
-#define Activate_Dice_Roll_ANS                  ANSELAbits.ANSA5
-#define Activate_Dice_Roll_SetHigh()            do { LATAbits.LATA5 = 1; } while(0)
-#define Activate_Dice_Roll_SetLow()             do { LATAbits.LATA5 = 0; } while(0)
-#define Activate_Dice_Roll_Toggle()             do { LATAbits.LATA5 = ~LATAbits.LATA5; } while(0)
-#define Activate_Dice_Roll_GetValue()           PORTAbits.RA5
-#define Activate_Dice_Roll_SetDigitalInput()    do { TRISAbits.TRISA5 = 1; } while(0)
-#define Activate_Dice_Roll_SetDigitalOutput()   do { TRISAbits.TRISA5 = 0; } while(0)
-#define Activate_Dice_Roll_SetAnalogMode()      do { ANSELAbits.ANSA5 = 1; } while(0)
-#define Activate_Dice_Roll_SetDigitalMode()     do { ANSELAbits.ANSA5 = 0; } while(0)
+#define Activate_Dice_Roll_TRIS                 TRISAbits.TRISA4
+#define Activate_Dice_Roll_LAT                  LATAbits.LATA4
+#define Activate_Dice_Roll_PORT                 PORTAbits.RA4
+#define Activate_Dice_Roll_SetHigh()            do { LATAbits.LATA4 = 1; } while(0)
+#define Activate_Dice_Roll_SetLow()             do { LATAbits.LATA4 = 0; } while(0)
+#define Activate_Dice_Roll_Toggle()             do { LATAbits.LATA4 = ~LATAbits.LATA4; } while(0)
+#define Activate_Dice_Roll_GetValue()           PORTAbits.RA4
+#define Activate_Dice_Roll_SetDigitalInput()    do { TRISAbits.TRISA4 = 1; } while(0)
+#define Activate_Dice_Roll_SetDigitalOutput()   do { TRISAbits.TRISA4 = 0; } while(0)
+
+// get/set Activate_Second_Display aliases
+#define Activate_Second_Display_TRIS                 TRISAbits.TRISA5
+#define Activate_Second_Display_LAT                  LATAbits.LATA5
+#define Activate_Second_Display_PORT                 PORTAbits.RA5
+#define Activate_Second_Display_ANS                  ANSELAbits.ANSA5
+#define Activate_Second_Display_SetHigh()            do { LATAbits.LATA5 = 1; } while(0)
+#define Activate_Second_Display_SetLow()             do { LATAbits.LATA5 = 0; } while(0)
+#define Activate_Second_Display_Toggle()             do { LATAbits.LATA5 = ~LATAbits.LATA5; } while(0)
+#define Activate_Second_Display_GetValue()           PORTAbits.RA5
+#define Activate_Second_Display_SetDigitalInput()    do { TRISAbits.TRISA5 = 1; } while(0)
+#define Activate_Second_Display_SetDigitalOutput()   do { TRISAbits.TRISA5 = 0; } while(0)
+#define Activate_Second_Display_SetAnalogMode()      do { ANSELAbits.ANSA5 = 1; } while(0)
+#define Activate_Second_Display_SetDigitalMode()     do { ANSELAbits.ANSA5 = 0; } while(0)
+
+// get/set Unused_IO_RB0 aliases
+#define Unused_IO_RB0_TRIS                 TRISBbits.TRISB0
+#define Unused_IO_RB0_LAT                  LATBbits.LATB0
+#define Unused_IO_RB0_PORT                 PORTBbits.RB0
+#define Unused_IO_RB0_WPU                  WPUBbits.WPUB0
+#define Unused_IO_RB0_ANS                  ANSELBbits.ANSB0
+#define Unused_IO_RB0_SetHigh()            do { LATBbits.LATB0 = 1; } while(0)
+#define Unused_IO_RB0_SetLow()             do { LATBbits.LATB0 = 0; } while(0)
+#define Unused_IO_RB0_Toggle()             do { LATBbits.LATB0 = ~LATBbits.LATB0; } while(0)
+#define Unused_IO_RB0_GetValue()           PORTBbits.RB0
+#define Unused_IO_RB0_SetDigitalInput()    do { TRISBbits.TRISB0 = 1; } while(0)
+#define Unused_IO_RB0_SetDigitalOutput()   do { TRISBbits.TRISB0 = 0; } while(0)
+#define Unused_IO_RB0_SetPullup()          do { WPUBbits.WPUB0 = 1; } while(0)
+#define Unused_IO_RB0_ResetPullup()        do { WPUBbits.WPUB0 = 0; } while(0)
+#define Unused_IO_RB0_SetAnalogMode()      do { ANSELBbits.ANSB0 = 1; } while(0)
+#define Unused_IO_RB0_SetDigitalMode()     do { ANSELBbits.ANSB0 = 0; } while(0)
+
+// get/set Display_1C aliases
+#define Display_1C_TRIS                 TRISBbits.TRISB1
+#define Display_1C_LAT                  LATBbits.LATB1
+#define Display_1C_PORT                 PORTBbits.RB1
+#define Display_1C_WPU                  WPUBbits.WPUB1
+#define Display_1C_ANS                  ANSELBbits.ANSB1
+#define Display_1C_SetHigh()            do { LATBbits.LATB1 = 1; } while(0)
+#define Display_1C_SetLow()             do { LATBbits.LATB1 = 0; } while(0)
+#define Display_1C_Toggle()             do { LATBbits.LATB1 = ~LATBbits.LATB1; } while(0)
+#define Display_1C_GetValue()           PORTBbits.RB1
+#define Display_1C_SetDigitalInput()    do { TRISBbits.TRISB1 = 1; } while(0)
+#define Display_1C_SetDigitalOutput()   do { TRISBbits.TRISB1 = 0; } while(0)
+#define Display_1C_SetPullup()          do { WPUBbits.WPUB1 = 1; } while(0)
+#define Display_1C_ResetPullup()        do { WPUBbits.WPUB1 = 0; } while(0)
+#define Display_1C_SetAnalogMode()      do { ANSELBbits.ANSB1 = 1; } while(0)
+#define Display_1C_SetDigitalMode()     do { ANSELBbits.ANSB1 = 0; } while(0)
 
 // get/set Display_1UP aliases
 #define Display_1UP_TRIS                 TRISBbits.TRISB2

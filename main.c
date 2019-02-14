@@ -49,7 +49,7 @@
 typedef union displ_conf {
     unsigned char conc_displ_val;
     struct{
-        unsigned ba:1, h:1, g:1, fe:1, d:1, up:1, c:1;
+        unsigned c:1, up:1, d:1, fe:1, g:1, h:1, ba:1; 
         unsigned    :1;
     }led_seg;
 } displ_conf;

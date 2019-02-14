@@ -60,10 +60,10 @@ void PIN_MANAGER_Initialize(void)
     LATx registers
     */
     LATE = 0x00;
-    LATD = 0x00;
+    LATD = 0xF0;
     LATA = 0x00;
-    LATB = 0x00;
-    LATC = 0x00;
+    LATB = 0xFE;
+    LATC = 0xE0;
 
     /**
     TRISx registers
@@ -88,6 +88,12 @@ void PIN_MANAGER_Initialize(void)
     */
     WPUB = 0x00;
     INTCON2bits.nRBPU = 1;   
+}
+
+void PIN_MANAGER_IOC(void)
+{   
+	// Clear global Interrupt-On-Change flag
+    INTCONbits.RBIF = 0;
 }
 
 /**

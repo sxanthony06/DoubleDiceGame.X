@@ -47,7 +47,7 @@
 // Configuration bits: selected in the GUI
 
 // CONFIG1H
-#pragma config FOSC = HSMP    // Oscillator Selection bits->HS oscillator (medium power 4-16 MHz)
+#pragma config FOSC = INTIO67    // Oscillator Selection bits->Internal oscillator block
 #pragma config PLLCFG = OFF    // 4X PLL Enable->Oscillator used directly
 #pragma config PRICLKEN = ON    // Primary clock enable bit->Primary clock is always enabled
 #pragma config FCMEN = OFF    // Fail-Safe Clock Monitor Enable bit->Fail-Safe Clock Monitor disabled
@@ -75,7 +75,7 @@
 #pragma config STVREN = ON    // Stack Full/Underflow Reset Enable bit->Stack full/underflow will cause Reset
 #pragma config LVP = OFF    // Single-Supply ICSP Enable bit->Single-Supply ICSP disabled
 #pragma config XINST = OFF    // Extended Instruction Set Enable bit->Instruction set extension and Indexed Addressing mode disabled (Legacy mode)
-#pragma config DEBUG = OFF    // Background Debug->Disabled
+#pragma config DEBUG = ON    // Background Debug->Enabled
 
 // CONFIG5L
 #pragma config CP0 = OFF    // Code Protection Block 0->Block 0 (000800-001FFFh) not code-protected
