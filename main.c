@@ -49,8 +49,8 @@
 typedef union displ_conf {
     unsigned char conc_displ_val;
     struct{
-        unsigned c:1, up:1, d:1, fe:1, g:1, h:1, ba:1; 
         unsigned    :1;
+        unsigned c:1, up:1, d:1, fe:1, g:1, h:1, ba:1; 
     }led_seg;
 } displ_conf;
 
@@ -67,6 +67,9 @@ void main(void)
     
     // Initialize the device
     SYSTEM_Initialize();
+    PORTB = 0xFE;
+    PORTD = 0xF0;;
+    PORTC = 0xE0;
 
     while (1)
     {
@@ -78,29 +81,20 @@ void main(void)
             }       
             disp1_num = randRange(6)+1;
             resolve_ledsegs(disp1_num, &displ_1_conf);
-            
+            disp2_num = randRange(6)+1;
+            resolve_ledsegs(disp2_num, &displ_2_conf);
+                        
+
+            PORTB = (displ_1_conf.conc_displ_val & 0xFE);
             if(Activate_Second_Display_GetValue()){
-                disp2_num = randRange(6)+1;
-                resolve_ledsegs(disp2_num, &displ_2_conf);
-            }else{
-                Display_2BA_SetHigh();
-                Display_2C_SetHigh();
-                Display_2D_SetHigh();
-                Display_2FE_SetHigh();
-                Display_2H_SetHigh();
-                Display_2G_SetHigh();
-                Display_2UP_SetHigh();
+                PORTD = (displ_2_conf.conc_displ_val & 0xF0);
+                PORTC = ((displ_2_conf.conc_displ_val<<4) & 0xE0);         
             }
-            
-            PORTB = (displ_1_conf.conc_displ_val & 0b11111110);
-            PORTD = (displ_2_conf.conc_displ_val & 0b11110000);
-            PORTC = (displ_2_conf.conc_displ_val & 0b00001110);
-            
-            __delay_ms(2000);
-            displ_1_conf.conc_displ_val = 0;
-            displ_2_conf.conc_displ_val = 0;
-
-
+            __delay_ms(3000);
+        }
+        if(!Activate_Second_Display_GetValue()){
+            PORTD = 0xF0;
+            PORTC = 0xE0;
         }
     }
 }

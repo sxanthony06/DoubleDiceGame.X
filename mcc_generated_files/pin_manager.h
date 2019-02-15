@@ -73,6 +73,48 @@
 #define Unused_IO_RA0_SetAnalogMode()      do { ANSELAbits.ANSA0 = 1; } while(0)
 #define Unused_IO_RA0_SetDigitalMode()     do { ANSELAbits.ANSA0 = 0; } while(0)
 
+// get/set Unused_IO_RA1 aliases
+#define Unused_IO_RA1_TRIS                 TRISAbits.TRISA1
+#define Unused_IO_RA1_LAT                  LATAbits.LATA1
+#define Unused_IO_RA1_PORT                 PORTAbits.RA1
+#define Unused_IO_RA1_ANS                  ANSELAbits.ANSA1
+#define Unused_IO_RA1_SetHigh()            do { LATAbits.LATA1 = 1; } while(0)
+#define Unused_IO_RA1_SetLow()             do { LATAbits.LATA1 = 0; } while(0)
+#define Unused_IO_RA1_Toggle()             do { LATAbits.LATA1 = ~LATAbits.LATA1; } while(0)
+#define Unused_IO_RA1_GetValue()           PORTAbits.RA1
+#define Unused_IO_RA1_SetDigitalInput()    do { TRISAbits.TRISA1 = 1; } while(0)
+#define Unused_IO_RA1_SetDigitalOutput()   do { TRISAbits.TRISA1 = 0; } while(0)
+#define Unused_IO_RA1_SetAnalogMode()      do { ANSELAbits.ANSA1 = 1; } while(0)
+#define Unused_IO_RA1_SetDigitalMode()     do { ANSELAbits.ANSA1 = 0; } while(0)
+
+// get/set Unused_IO_RA2 aliases
+#define Unused_IO_RA2_TRIS                 TRISAbits.TRISA2
+#define Unused_IO_RA2_LAT                  LATAbits.LATA2
+#define Unused_IO_RA2_PORT                 PORTAbits.RA2
+#define Unused_IO_RA2_ANS                  ANSELAbits.ANSA2
+#define Unused_IO_RA2_SetHigh()            do { LATAbits.LATA2 = 1; } while(0)
+#define Unused_IO_RA2_SetLow()             do { LATAbits.LATA2 = 0; } while(0)
+#define Unused_IO_RA2_Toggle()             do { LATAbits.LATA2 = ~LATAbits.LATA2; } while(0)
+#define Unused_IO_RA2_GetValue()           PORTAbits.RA2
+#define Unused_IO_RA2_SetDigitalInput()    do { TRISAbits.TRISA2 = 1; } while(0)
+#define Unused_IO_RA2_SetDigitalOutput()   do { TRISAbits.TRISA2 = 0; } while(0)
+#define Unused_IO_RA2_SetAnalogMode()      do { ANSELAbits.ANSA2 = 1; } while(0)
+#define Unused_IO_RA2_SetDigitalMode()     do { ANSELAbits.ANSA2 = 0; } while(0)
+
+// get/set Unused_IO_RA3 aliases
+#define Unused_IO_RA3_TRIS                 TRISAbits.TRISA3
+#define Unused_IO_RA3_LAT                  LATAbits.LATA3
+#define Unused_IO_RA3_PORT                 PORTAbits.RA3
+#define Unused_IO_RA3_ANS                  ANSELAbits.ANSA3
+#define Unused_IO_RA3_SetHigh()            do { LATAbits.LATA3 = 1; } while(0)
+#define Unused_IO_RA3_SetLow()             do { LATAbits.LATA3 = 0; } while(0)
+#define Unused_IO_RA3_Toggle()             do { LATAbits.LATA3 = ~LATAbits.LATA3; } while(0)
+#define Unused_IO_RA3_GetValue()           PORTAbits.RA3
+#define Unused_IO_RA3_SetDigitalInput()    do { TRISAbits.TRISA3 = 1; } while(0)
+#define Unused_IO_RA3_SetDigitalOutput()   do { TRISAbits.TRISA3 = 0; } while(0)
+#define Unused_IO_RA3_SetAnalogMode()      do { ANSELAbits.ANSA3 = 1; } while(0)
+#define Unused_IO_RA3_SetDigitalMode()     do { ANSELAbits.ANSA3 = 0; } while(0)
+
 // get/set Activate_Dice_Roll aliases
 #define Activate_Dice_Roll_TRIS                 TRISAbits.TRISA4
 #define Activate_Dice_Roll_LAT                  LATAbits.LATA4
@@ -97,23 +139,6 @@
 #define Activate_Second_Display_SetDigitalOutput()   do { TRISAbits.TRISA5 = 0; } while(0)
 #define Activate_Second_Display_SetAnalogMode()      do { ANSELAbits.ANSA5 = 1; } while(0)
 #define Activate_Second_Display_SetDigitalMode()     do { ANSELAbits.ANSA5 = 0; } while(0)
-
-// get/set Unused_IO_RB0 aliases
-#define Unused_IO_RB0_TRIS                 TRISBbits.TRISB0
-#define Unused_IO_RB0_LAT                  LATBbits.LATB0
-#define Unused_IO_RB0_PORT                 PORTBbits.RB0
-#define Unused_IO_RB0_WPU                  WPUBbits.WPUB0
-#define Unused_IO_RB0_ANS                  ANSELBbits.ANSB0
-#define Unused_IO_RB0_SetHigh()            do { LATBbits.LATB0 = 1; } while(0)
-#define Unused_IO_RB0_SetLow()             do { LATBbits.LATB0 = 0; } while(0)
-#define Unused_IO_RB0_Toggle()             do { LATBbits.LATB0 = ~LATBbits.LATB0; } while(0)
-#define Unused_IO_RB0_GetValue()           PORTBbits.RB0
-#define Unused_IO_RB0_SetDigitalInput()    do { TRISBbits.TRISB0 = 1; } while(0)
-#define Unused_IO_RB0_SetDigitalOutput()   do { TRISBbits.TRISB0 = 0; } while(0)
-#define Unused_IO_RB0_SetPullup()          do { WPUBbits.WPUB0 = 1; } while(0)
-#define Unused_IO_RB0_ResetPullup()        do { WPUBbits.WPUB0 = 0; } while(0)
-#define Unused_IO_RB0_SetAnalogMode()      do { ANSELBbits.ANSB0 = 1; } while(0)
-#define Unused_IO_RB0_SetDigitalMode()     do { ANSELBbits.ANSB0 = 0; } while(0)
 
 // get/set Display_1C aliases
 #define Display_1C_TRIS                 TRISBbits.TRISB1
@@ -339,6 +364,34 @@
 #define Unused_IO_RE0_SetDigitalOutput()   do { TRISEbits.TRISE0 = 0; } while(0)
 #define Unused_IO_RE0_SetAnalogMode()      do { ANSELEbits.ANSE0 = 1; } while(0)
 #define Unused_IO_RE0_SetDigitalMode()     do { ANSELEbits.ANSE0 = 0; } while(0)
+
+// get/set Unused_IO_RE1 aliases
+#define Unused_IO_RE1_TRIS                 TRISEbits.TRISE1
+#define Unused_IO_RE1_LAT                  LATEbits.LATE1
+#define Unused_IO_RE1_PORT                 PORTEbits.RE1
+#define Unused_IO_RE1_ANS                  ANSELEbits.ANSE1
+#define Unused_IO_RE1_SetHigh()            do { LATEbits.LATE1 = 1; } while(0)
+#define Unused_IO_RE1_SetLow()             do { LATEbits.LATE1 = 0; } while(0)
+#define Unused_IO_RE1_Toggle()             do { LATEbits.LATE1 = ~LATEbits.LATE1; } while(0)
+#define Unused_IO_RE1_GetValue()           PORTEbits.RE1
+#define Unused_IO_RE1_SetDigitalInput()    do { TRISEbits.TRISE1 = 1; } while(0)
+#define Unused_IO_RE1_SetDigitalOutput()   do { TRISEbits.TRISE1 = 0; } while(0)
+#define Unused_IO_RE1_SetAnalogMode()      do { ANSELEbits.ANSE1 = 1; } while(0)
+#define Unused_IO_RE1_SetDigitalMode()     do { ANSELEbits.ANSE1 = 0; } while(0)
+
+// get/set Unused_IO_RE2 aliases
+#define Unused_IO_RE2_TRIS                 TRISEbits.TRISE2
+#define Unused_IO_RE2_LAT                  LATEbits.LATE2
+#define Unused_IO_RE2_PORT                 PORTEbits.RE2
+#define Unused_IO_RE2_ANS                  ANSELEbits.ANSE2
+#define Unused_IO_RE2_SetHigh()            do { LATEbits.LATE2 = 1; } while(0)
+#define Unused_IO_RE2_SetLow()             do { LATEbits.LATE2 = 0; } while(0)
+#define Unused_IO_RE2_Toggle()             do { LATEbits.LATE2 = ~LATEbits.LATE2; } while(0)
+#define Unused_IO_RE2_GetValue()           PORTEbits.RE2
+#define Unused_IO_RE2_SetDigitalInput()    do { TRISEbits.TRISE2 = 1; } while(0)
+#define Unused_IO_RE2_SetDigitalOutput()   do { TRISEbits.TRISE2 = 0; } while(0)
+#define Unused_IO_RE2_SetAnalogMode()      do { ANSELEbits.ANSE2 = 1; } while(0)
+#define Unused_IO_RE2_SetDigitalMode()     do { ANSELEbits.ANSE2 = 0; } while(0)
 
 /**
    @Param
