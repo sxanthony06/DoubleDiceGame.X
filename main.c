@@ -62,20 +62,21 @@ void resolve_ledsegs(uint8_t, displ_conf*);
 void main(void)
 {
     bool seed_initd = false;
-    unsigned int disp1_num, disp2_num;
+    unsigned int disp1_num, disp2_num, timer_read;
     displ_conf displ_1_conf, displ_2_conf;
     
     // Initialize the device
     SYSTEM_Initialize();
-    PORTB = 0xFE;
-    PORTD = 0xF0;;
-    PORTC = 0xE0;
+//    PORTB = 0xFE;
+//    PORTD = 0xF0;;
+//    PORTC = 0xE0;
 
     while (1)
     {
         if(Activate_Dice_Roll_GetValue()){
             if(!seed_initd){
-                srand(TMR0_ReadTimer());
+                timer_read  = TMR0_ReadTimer();
+                srand(timer_read);
                 TMR0_StopTimer();
                 seed_initd = true;
             }       
